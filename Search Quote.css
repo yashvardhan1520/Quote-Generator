@@ -1,0 +1,447 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Playfair Display';
+    }
+    
+    body {
+      background-color: rgb(62, 111, 131 , 0.5);
+      background-image: url('images/bg.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgb(62, 111, 131); 
+      opacity: 0.9;
+      color: #fff;
+      height: 80px;
+      font-size: 30px;
+}
+
+nav h1{
+  margin: 20px 20px 30px;
+  cursor: pointer;
+}
+
+nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 20px 40px 30px;
+      margin-left: 0px;
+}
+    
+.quote-box {
+  background-color: #fff;
+  width: 700px;
+  position: absolute;
+  top: 120px; /* Adjust this value to set the initial gap */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+}
+    
+    .quote-box h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    
+    .quote-box h2::after {
+      content: '';
+      width: 75px;
+      height: 3px;
+      border-radius: 3px;
+      background: rgb(23, 124, 229);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    
+    .quote-box blockquote {
+      font-size: 26px;
+      min-height: 110px;
+    }
+    
+    .quote-box blockquote::before,
+    .quote-box blockquote::after {
+      content: '"';
+    }
+    
+    .quote-box span {
+      display: block;
+      margin-top: 15px;
+      float: right;
+      position: relative;
+    }
+    
+    .quote-box span::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: rgb(23, 124, 229);
+      position: absolute;
+      top: 50%;
+      left: -30px;
+    }
+    
+    .quote-box div {
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .quote-box button {
+      background: #fff;
+      color: rgb(23, 124, 229);
+      border-radius: 25px;
+      border: 1px solid rgb(23, 124, 229);
+      width: 120px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+    
+    .quote-box button:hover{
+      background: rgb(23, 124, 229);
+      color: #fff;
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .quote-box button img {
+      width: 30px;
+      margin-right: 6px;
+    }
+    
+    .quote-box button:nth-child(2) {
+      background: rgb(23, 124, 229);
+      color: #fff;
+      border: 0px;
+    }
+
+    .quote-box button:nth-child(2):hover{
+      background: transparent;
+      color: rgb(23, 124, 229);
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+      border: 1px solid rgb(23, 124, 229);
+    }
+    
+    .quote-box p {
+      font-size: 14px;
+      display: none;
+    }
+    
+    .quote-box .search-box {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #search {
+      background: rgb(23, 124, 229);
+      color: #fff;
+      border-radius: 25px;
+      border: 1px solid rgb(23, 124, 229);
+      width: 80px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.5s, color 0.5s;
+    }
+    
+    #search:hover {
+      background: transparent;
+      color: rgb(23, 124, 229);
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    }
+    
+    .quote-box input {
+      border-radius: 20px;
+      width: 100%;
+      height: 35px;
+      padding-left: 10px;
+      border: 1px solid #ddd; /* Add a border for better visibility */
+    }
+    
+    .pre-next {
+      width: 100%;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .pre-next img {
+      width: 25px; /* Adjust the width */
+      height: 25px; /* Adjust the height */
+      cursor: pointer; /* Add a cursor pointer for better interaction */
+      transition: 0.5s; /* Add a smooth transition effect */
+      margin: 0px 5px -10px; /* Add margin for a gap between the images */
+      border-radius: 50%;
+      display: none;
+    }
+    
+    .no-results {
+      font-size: 14px;
+      color: #888; /* Change the color as needed */
+      margin-top: 10px;
+      display: none;
+    }
+    
+    .pre-next img:hover {
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+    }
+
+
+    @media only screen and (max-width: 600px) {
+      body {
+        background-size: auto;
+      }
+
+        nav {
+          height: 60px;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 10px;
+        }
+      
+        nav h1 {
+          font-size: 24px;
+          margin: 0px 0px 0px 20px; /* Add right margin to h1 for spacing */
+          bottom: 10px;
+        }
+      
+        nav a {
+          margin-right: 20px; /* Reset margin for <a> */
+          font-size: 24px;
+          bottom: 10px;
+          margin-left: 0px;
+        }
+    
+    
+      .quote-box {
+        width: 90%;
+        max-width: 400px; /* Set a maximum width for smaller screens */
+        padding: 20px;
+        box-sizing: border-box;
+      }
+    
+      .quote-box h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+    
+      .quote-box blockquote {
+        font-size: 18px;
+        min-height: auto;
+        margin-bottom: 20px;
+        margin-top: 50px;
+      }
+    
+      .quote-box span{
+        margin-bottom: 20px;
+      }
+
+      .quote-box span::before {
+        width: 15px;
+        left: -20px;
+      }
+    
+      .quote-box div {
+        margin-top: 20px;
+      }
+    
+      .quote-box button {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+      }
+    
+      .quote-box button img {
+        width: 20px;
+      }
+    
+      .quote-box button:nth-child(2) {
+        font-size: 16px;
+      }
+    
+      .quote-box button:nth-child(2):hover {
+        box-shadow: none;
+      }
+    
+      .quote-box p {
+        font-size: 12px;
+      }
+    
+      .quote-box .search-box {
+        margin-top: 40px;
+        flex-direction: column;
+      }
+    
+      #search {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+      }
+    
+      .quote-box input {
+        height: 30px;
+      }
+    
+      .pre-next {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    
+      .pre-next img {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        display: inline-block;
+      }
+    
+      .no-results {
+        font-size: 12px;
+      }
+    }
+    
+    /* Media query for tablet screens */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  nav {
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav h1 {
+    margin: 10px 20px 10px;
+    font-size: 28px;
+    margin-left: 10px;
+  }
+
+    body {
+    background-size: cover;
+    background-position: center;
+  }
+
+  nav a {
+    margin: 20px 20px 10px;
+    font-size: 28px;
+    margin-right: 20px;
+    margin-left: 0px;
+  }
+
+  .quote-box {
+    width: 70%;
+    padding: 4%;
+  }
+
+  .quote-box h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .quote-box blockquote {
+    font-size: 22px;
+    min-height: auto;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  .quote-box span{
+    margin-bottom: 20px;
+  }
+
+  .quote-box span::before {
+    width: 18px;
+    left: -25px;
+  }
+
+  .quote-box div {
+    margin-top: 20px;
+  }
+
+  .quote-box button {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .quote-box button img {
+    width: 25px;
+  }
+
+  .quote-box button:nth-child(2) {
+    font-size: 20px;
+  }
+
+  .quote-box button:nth-child(2):hover {
+    box-shadow: none;
+  }
+
+  .quote-box p {
+    font-size: 14px;
+  }
+
+  .quote-box .search-box {
+    margin-top: 40px;
+    flex-direction: column;
+  }
+
+  #search {
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .quote-box input {
+    height: 35px;
+  }
+
+  .pre-next {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pre-next img {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    display: inline-block;
+  }
+
+  .no-results {
+    font-size: 14px;
+  }
+}
+
+
+    /* https://api.quotable.io        GET /search/quotes        GET /random        https://api.quotable.ioGET /search/quotes?query=every good technology is basically magic*/

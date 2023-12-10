@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="Search Quote.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+      <title>Quote-Generator</title>
+</head>
+<body>
+      <nav>
+            <div>
+                  <h1><a href="index.html"> Quotify </a></h1>
+            </div>
+            <div>
+                  <a href="Author Quote.html">Author</a>  
+            </div>
+      </nav>
+      <div class="quote-box">
+            <h2>Search Quotes by Famous Authors</h2>
+            <blockquote id="quote">Loading...</blockquote>
+            <span id = "author">Loading</span>
+            <div class="search-box">
+                  <input type="text" placeholder="Enter Author name...">
+                  <button id="search" onclick="link()">Search</button>
+            </div>
+            <div>
+                  <button onclick="getQuotee(api_urll)">New Quote</button>
+                  <button onclick="tweet()"><img src="images/twitter.png"> Tweet</button>
+            </div>
+            <div class="pre-next">
+                  <img src="images/left.png" class="l" onclick="getQuote(api_url + searchBox.value)">
+                  <img src="images/right.png" class="r" onclick="getQuote(api_url + searchBox.value)">
+                  <p class="no-results">There are no more results.</p>
+            </div>
+      </div>
+
+      <!-- <div class="tag-box">
+            <h2>Search By Tags</h2>
+            <button class="tag-button">Inspiration</button>
+            <button class="tag-button">Motivation</button>
+            <button class="tag-button">Wisdom</button>
+            <button class="tag-button">Life</button>
+            <button class="tag-button">Success</button>
+            <button class="tag-button">Happiness</button>
+            <button class="tag-button">Love</button>
+            <button class="tag-button">Courage</button>
+            <button class="tag-button">Creativity</button>
+            <button class="tag-button">Dreams</button>
+            <button class="tag-button">Positive</button>
+            <button class="tag-button">Mindfulness</button>
+            <button class="tag-button">Self-Improvement</button>
+            <button class="tag-button">Gratitude</button>
+            <button class="tag-button">Leadership</button>
+            <button class="tag-button">Change</button>
+            <button class="tag-button">Persistence</button>
+            <button class="tag-button">Hope</button>
+            <button class="tag-button">Innovation</button>
+            <button class="tag-button">Ambition</button>
+            <button class="tag-button">Kindness</button>
+            <button class="tag-button">Optimism</button>
+            <button class="tag-button">Reflection</button>
+            <button class="tag-button">Balance</button>
+            <button class="tag-button">Mindset</button>
+            <button class="tag-button">Goals</button>
+            <button class="tag-button">Resilience</button>
+            <button class="tag-button">Positivity</button>
+            <button class="tag-button">Empowerment</button>
+      </div> -->
+
+      <script src="Author Quote.js"></script>
+</body>
+</html>
