@@ -65,7 +65,23 @@ function link(){
 
 
 function tweet(){
-      window.open(href="https://twitter.com/intent/tweet?text=" + quote + " ---- by " + author,"Tweet window" , 'width = 600 , height = 300')
+      var message = encodeURIComponent(
+            '"' + quote + '"\n' + // Quote wrapped in double quotes
+            '\n- ' + author + '\n\n' + // Author name with a line break before it
+            'For more quotes, visit Quotify at https://yashvardhann15.github.io/Quote-Generator/'
+        );
+
+      window.open(href="https://twitter.com/intent/tweet?text=" + message,"Tweet Window" , 'width = 600 , height = 300')
+}
+
+function whatsapp() {
+      var message = encodeURIComponent(
+          '"' + quote + '"\n' + // Quote wrapped in double quotes
+          '\n- ' + author + '\n\n' + // Author name with a line break before it
+          'For more quotes, visit Quotify at https://yashvardhann15.github.io/Quote-Generator/'
+      );
+  
+      window.open("https://api.whatsapp.com/send/?text=" + message, "Whatsapp window", 'width=600,height=300');
 }
 
 searchBox.addEventListener('keydown', (event) =>{
