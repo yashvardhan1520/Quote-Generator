@@ -1,45 +1,48 @@
-const api_url = "https://api.quotable.io/search/quotes?query=";
-const api_urll = "https://api.quotable.io/random";
+const api_url = "https://api.api-ninjas.com/v1/quotes?category=";
+const api_urll = "https://api.api-ninjas.com/v1/quotes"
+
 let author = "";
 let quote = "";
 const searchBox = document.querySelector(".search-box input");
 const right = document.querySelector(".r");
 const left = document.querySelector(".l");
-
+const apiKey = "getyourapiKey";
 
 
 async function getQuotee(url){
-      const response = await fetch(url);
+      const response = await fetch(url , {headers: {"X-Api-Key": apiKey}});
       var data = await response.json();
-      // console.log(data);
+      console.log(data);
+      const firstQuote = data[0];
       left.style.display = 'none';
       right.style.display = 'none';
       searchBox.value = '';
-      document.querySelector('.quote-box blockquote').innerHTML = data.content;
-      document.querySelector('.quote-box span').innerHTML = data.author;
-      quote = document.querySelector('.quote-box blockquote').innerHTML;
-      author = document.querySelector('.quote-box span').innerHTML;
+      document.querySelector('.quote-box blockquote').innerHTML = firstQuote.quote;
+      document.querySelector('.quote-box span').innerHTML = firstQuote.author;
+      quote = firstQuote.quote;
+      author = firstQuote.author;
 }
 
 getQuotee(api_urll);
 let i = 0;
 
 async function getQuote(url){
-      const response = await fetch(url);
+      const response = await fetch(url , {headers: {"X-Api-Key": apiKey}});
       var data = await response.json();
-      // console.log(data);
+      console.log(data);
 
-      if(data.results.length <= 1){
+      if(data.length < 1){
             document.querySelector('.no-results').style.display = 'block';
             left.style.display = 'none';
             right.style.display = 'none';
       }
       else{
+            console.log("hello");
             document.querySelector('.no-results').style.display = 'none';
-            document.querySelector('.quote-box blockquote').innerHTML = data.results[i].content;
-            document.querySelector('.quote-box span').innerHTML = data.results[i].authorSlug;
-            quote = document.querySelector('.quote-box blockquote').innerHTML;
-            author = document.querySelector('.quote-box span').innerHTML;
+            document.querySelector('.quote-box blockquote').innerHTML = data[i].quote;
+            document.querySelector('.quote-box span').innerHTML = data[i].author;
+            quote = data[i].quote;
+            author = data[i].author;
 
 
             if (i === 0){
@@ -49,7 +52,7 @@ async function getQuote(url){
                   left.style.display = 'block';
             }
             
-            if (i === data.results.length - 1) {
+            if (i === data.length - 1) {
                   right.style.display = 'none';
             }
             else {
@@ -87,12 +90,17 @@ function whatsapp() {
 }
   
 
-searchBox.addEventListener('keydown', (event) =>{
-      if(event.key == 'Enter'){
-            i = 0;
-            getQuote(api_url + searchBox.value);
+searchBox.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+          event.preventDefault(); // Prevent the form from being submitted
+          const searchTerm = searchBox.value.trim();
+          if (searchTerm) {
+              const searchUrl = `${api_url}${encodeURIComponent(searchTerm)}`;
+              i = 0; // Reset index for new search results
+              getQuote(searchUrl); // Perform the search with the constructed URL
+          }
       }
-});
+  });
 
 left.addEventListener('click', ()=>{
       i--;
@@ -103,4 +111,3 @@ right.addEventListener('click', ()=>{
       i++;
       getQuote(api_url + searchBox.value);
 });
-
