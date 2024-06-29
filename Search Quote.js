@@ -6,7 +6,7 @@ let quote = "";
 const searchBox = document.querySelector(".search-box input");
 const right = document.querySelector(".r");
 const left = document.querySelector(".l");
-const apiKey = "getyourapiKey";
+const apiKey = secrets.<getyourapiKey>;
 
 
 async function getQuotee(url){
